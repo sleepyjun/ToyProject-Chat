@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang=ko>
+  <head>
+    <title>ToyProject: Chat</title>
+    <link rel="shortcut icon" href="https://sleepyjun.com/favicon.ico" />
+    <meta charset=utf-8 />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.3/socket.io.min.js"></script>
+    <link rel="stylesheet" href="style/main.css" />
+  </head>
+  <body>
+    <div class="ui text container chat-container">
+      <div class="header">
+        CHAT SERVER
+      </div>
+      <div class="content">
+        <login-form @send-id="sendID" v-if="login==false"></login-form>
+        <chat-ui v-else></chat-ui>
+      </div>
+    </div>
+    <div class="ui mini modal duplicated transition hidden">
+      <div class="header">
+        중복된 닉네임
+      </div>
+      <div class="content">
+        <p>닉네임이 중복되었습니다</p>
+      </div>
+      <div class="actions">
+        <div class="ui negative button">
+          닫기
+        </div>
+      </div>
+    </div>
+    <div class="ui mini modal wrong transition hidden">
+      <div class="header">
+        잘못된 닉네임
+      </div>
+      <div class="content">
+        <p>한글 단어로 2자이상 8자이내로 설정해주세요</p>
+      </div>
+      <div class="actions">
+        <div class="ui negative button">
+          닫기
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./main.js"></script>
+</html>
